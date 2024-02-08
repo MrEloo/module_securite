@@ -1,0 +1,19 @@
+<main id="category" class="py-5 px-3">
+    <h1 class="mb-5">Secured Blog</h1>
+    <h2 class="mt-5"><?= $data['post'][0]->getCategory()[0]->getTitle() ?></h2>
+    <ul class="row mt-5">
+        <?php foreach ($data['post'] as $key => $item) { ?>
+            <li class="col-4 my-2">
+                <article class="card">
+                    <header class="card-body">
+                        <h3 class="h5 card-title"><?= $item->getTitle() ?></h3>
+                    </header>
+                    <section class="card-body">
+                        <p class="card-text"><?= $item->getExcerpt() ?></p>
+                        <a href="index.php?route=post&post_id=<?= $item->getId() ?>" class="btn btn-primary">Post Link</a>
+                    </section>
+                </article>
+            </li>
+        <?php } ?>
+    </ul>
+</main>
