@@ -8,6 +8,13 @@
 
 class UserManager extends AbstractManager
 {
+
+    public function __construct()
+    {
+        $lang = $_SESSION["lang"];
+        parent::__construct();
+    }
+
     public function findByEmail(string $email): ?object
     {
         $selectByEmail = $this->db->prepare('SELECT * FROM users WHERE email = :email');

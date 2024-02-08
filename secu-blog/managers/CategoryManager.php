@@ -8,8 +8,13 @@
 
 class CategoryManager extends AbstractManager
 {
+    private string $lang = 'fr';
+
     public function __construct()
     {
+
+        $this->lang = $_SESSION["lang"];
+
         parent::__construct();
     }
 
@@ -22,7 +27,7 @@ class CategoryManager extends AbstractManager
         $categories_array = [];
 
         foreach ($categories as $key => $category) {
-            $newCategoryModel = new Category($category['title'], $category['description']);
+            $newCategoryModel = new Category($category["title_" . $this->lang], $category["description_" . $this->lang]);
             $newCategoryModel->settId($category['id']);
             $categories_array[] = $newCategoryModel;
         }
@@ -40,7 +45,7 @@ class CategoryManager extends AbstractManager
         $category = $selectOneQuery->fetch(PDO::FETCH_ASSOC);
 
         if ($category) {
-            $newCategoryModel = new Category($category['title'], $category['description']);
+            $newCategoryModel = new Category($category["title_" . $this->lang], $category["description_" . $this->lang]);
             $newCategoryModel->settId($category['id']);
             return $newCategoryModel;
         } else {
@@ -60,7 +65,7 @@ class CategoryManager extends AbstractManager
         $categories_array = [];
 
         foreach ($categories as $key => $category) {
-            $newCategoryModel = new Category($category['title'], $category['description']);
+            $newCategoryModel = new Category($category["title_" . $this->lang], $category["description_" . $this->lang]);
             $newCategoryModel->settId($category['id']);
             $categories_array[] = $newCategoryModel;
         }

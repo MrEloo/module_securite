@@ -1,10 +1,12 @@
 <?php
+
 /**
  * @author : Gaellan
  * @link : https://github.com/Gaellan
  */
 
 /* MODELS */
+require 'services/Translator.php';
 require "models/Category.php";
 require "models/User.php";
 require "models/Post.php";

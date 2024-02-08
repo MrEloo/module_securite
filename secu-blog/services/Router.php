@@ -17,7 +17,7 @@ class Router
     }
     public function handleRequest(array $get): void
     {
-        if (!isset($get["route"])) {
+        if (!isset($get["route"]) || $get["route"] === 'route') {
             $this->bc->home();
         } else if (isset($get["route"]) && $get["route"] === "register") {
             $this->ac->register();
@@ -29,6 +29,8 @@ class Router
             $this->ac->checkLogin();
         } else if (isset($get["route"]) && $get["route"] === "logout") {
             $this->ac->logout();
+        } else if (isset($get["route"]) && $get["route"] === "switch-lang") {
+            $this->ac->switchLang();
         } else if (isset($get["route"]) && $get["route"] === "category") {
             if (isset($get["category_id"])) {
                 $this->bc->category($get["category_id"]);

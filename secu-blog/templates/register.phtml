@@ -1,36 +1,36 @@
 <main id="register" class="container py-5 px-3">
-    <h1 class="mb-5">Secured Blog</h1>
+    <h1 class="mb-5"><?= $this->translator->translate("blog_title") ?></h1>
 
-    <h2 class="mt-5">Register</h2>
+    <h2 class="mt-5"><?= $this->translator->translate("nav_register_link") ?></h2>
 
     <form action="index.php?route=check-register" method="post">
         <input type="hidden" name="csrf-token" id="csrf-token" value="<?= $_SESSION['csrf_token'] ?? '' ?>" />
         <fieldset class="my-1">
             <label for="username" class="form-label">
-                Username
+                <?= $this->translator->translate("register_username") ?>
             </label>
             <input type="text" name="username" id="username" class="form-control" />
         </fieldset>
         <fieldset class="my-1">
             <label for="email" class="form-label">
-                Email
+                <?= $this->translator->translate("register_email") ?>
             </label>
             <input type="email" name="email" id="email" class="form-control" />
         </fieldset>
         <fieldset class="my-1">
             <label for="password" class="form-label">
-                Password
+                <?= $this->translator->translate("register_password") ?>
             </label>
             <input type="password" name="password" id="password" class="form-control" />
         </fieldset>
         <fieldset class="my-1">
             <label for="confirm-password" class="form-label">
-                Confirm password
+                <?= $this->translator->translate("register_confirm_password") ?>
             </label>
             <input type="password" name="confirm-password" id="confirm-password" class="form-control" />
         </fieldset>
         <fieldset>
-            <button type="submit" class="btn btn-primary">Register</button>
+            <button type="submit" class="btn btn-primary"><?= $this->translator->translate("nav_register_link") ?></button>
         </fieldset>
     </form>
     <?php if (isset($_SESSION['reg'])) { ?>

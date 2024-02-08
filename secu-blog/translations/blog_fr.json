@@ -1,0 +1,10 @@
+{
+    "home": "home",
+    "nav_categories_link": "Catégories",
+    "nav_login_link": "Connexion",
+    "nav_register_link": "Créer un compte",
+    "nav_logout_link": "Deconnexion",
+    "nav_switch_link": "Changer de langue",
+    "blog_title": "Blog Securisé",
+    "blog_latest_posts": "Posts récents"
+}

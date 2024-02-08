@@ -1,0 +1,19 @@
+{
+    "site_title": "Translated Forms",
+    "home": "home",
+    "nav_categories_link": "Categories",
+    "nav_login_link": "Login",
+    "nav_register_link": "Register",
+    "nav_logout_link": "Logout",
+    "nav_switch_link": "Switch Language",
+    "login_email_label": "Email",
+    "login_password_label": "Password",
+    "login_submit_button": "Login",
+    "login_register_text": "You do not yet have an account ?",
+    "login_link_text": "Register here",
+    "register_username": "Choose an username",
+    "register_email": "Choose an Email",
+    "register_password": "Choose a Password",
+    "register_confirm_password": "Confirm your password",
+    "blog_title": "Secured Blog"
+}

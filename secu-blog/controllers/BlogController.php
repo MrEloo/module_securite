@@ -8,6 +8,14 @@
 
 class BlogController extends AbstractController
 {
+
+    public function __construct()
+    {
+        $lang = $_SESSION["lang"];
+
+        parent::__construct("blog", $lang);
+    }
+
     public function home(): void
     {
         $newPostManager = new PostManager();

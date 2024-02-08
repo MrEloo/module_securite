@@ -29,10 +29,11 @@ require "../services/Router.php";
 
 
 // $newManager = new CategoryManager();
-// $categories = $newManager->findOne(2);
+// $categories = $newManager->findAll();
 // echo "<pre>";
 // var_dump($categories);
 // echo "</pre>";
+
 
 // $newPostManager = new PostManager();
 // $posts = $newPostManager->findLatest();

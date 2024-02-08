@@ -8,6 +8,13 @@
 
 class CommentManager extends AbstractManager
 {
+
+    public function __construct()
+    {
+        $lang = $_SESSION["lang"];
+        parent::__construct();
+    }
+
     public function findByPost(int $postId): array
     {
         $selectByPostQuery = $this->db->prepare('SELECT * FROM comments WHERE comments.post_id = :id');

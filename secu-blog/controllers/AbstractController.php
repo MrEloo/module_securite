@@ -8,6 +8,14 @@
 
 abstract class AbstractController
 {
+
+    protected Translator $translator;
+
+    public function __construct(string $file, protected string $currentLang = "fr")
+    {
+        $this->translator = new Translator($file, $this->currentLang);
+    }
+
     protected function render(string $template, array $data): void
     {
         $newCategoryManager = new CategoryManager();

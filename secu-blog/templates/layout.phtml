@@ -14,11 +14,11 @@
         <nav class="px-2 navbar navbar-expand-lg bg-body-tertiary">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Home</a>
+                    <a class="nav-link" href="index.php"><?= $this->translator->translate("home") ?></a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Categories
+                        <?= $this->translator->translate("nav_categories_link") ?>
                     </a>
                     <ul class="dropdown-menu">
                         <?php foreach ($categories as $key => $category) { ?>
@@ -27,13 +27,16 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="index.php?route=register">Register</a>
+                    <a class="nav-link" href="index.php?route=register"><?= $this->translator->translate("nav_register_link") ?></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="index.php?route=login">Login</a>
+                    <a class="nav-link" href="index.php?route=login"><?= $this->translator->translate("nav_login_link") ?></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="index.php?route=logout">Logout</a>
+                    <a class="nav-link" href="index.php?route=logout"><?= $this->translator->translate("nav_logout_link") ?></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.php?route=switch-lang"><?= $this->translator->translate("nav_switch_link") ?></a>
                 </li>
             </ul>
         </nav>

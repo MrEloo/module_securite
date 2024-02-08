@@ -10,6 +10,13 @@ session_start();
 
 require "config/autoload.php";
 
+
+if (!isset($_SESSION["lang"])) {
+    $_SESSION["lang"] = "fr";
+}
+
+
+
 $newTokenManger = new CSRFTokenManager();
 
 if (!isset($_SESSION['csrf_token'])) {

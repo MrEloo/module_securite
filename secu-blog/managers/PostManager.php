@@ -8,8 +8,11 @@
 
 class PostManager extends AbstractManager
 {
+    private string $lang;
+
     public function __construct()
     {
+        $this->lang = $_SESSION['lang'];
         parent::__construct();
     }
 
@@ -24,7 +27,7 @@ class PostManager extends AbstractManager
         foreach ($posts as $key => $post) {
             $newUserManager = new UserManager();
             $newUser = new User($post['username'], $post['email'], $post['password'], $post['role'], $post['user_created_at']);
-            $newPost = new Post($post['title'], $post['excerpt'], $post['content'], $newUser, $post['created_at']);
+            $newPost = new Post($post["title_" . $this->lang], $post["title_" . $this->lang], $post["content_" . $this->lang], $newUser, $post['created_at']);
             $newPost->settId($post['id']);
             $newUser->settId($post['id']);
 
@@ -46,7 +49,7 @@ class PostManager extends AbstractManager
         if (isset($post)) {
             $newUserManager = new UserManager();
             $newUser = new User($post['username'], $post['email'], $post['password'], $post['role'], $post['user_created_at']);
-            $newPost = new Post($post['title'], $post['excerpt'], $post['content'], $newUser, $post['created_at']);
+            $newPost = new Post($post["title_" . $this->lang], $post["title_" . $this->lang], $post["content_" . $this->lang], $newUser, $post['created_at']);
             $newPost->settId($post['id']);
             $newUser->settId($post['id']);
             return $newPost;
@@ -57,7 +60,7 @@ class PostManager extends AbstractManager
 
     public function findByCategory(int $categoryId): array
     {
-        $selectByIdQuery = $this->db->prepare('SELECT posts.*, categories.description, categories.title AS category_title, users.id AS users_id, users.username, users.email, users.password, users.role, users.created_at AS user_created_at FROM posts 
+        $selectByIdQuery = $this->db->prepare('SELECT posts.*, categories.description_fr AS categories_description_fr, categories.description_en AS categories_description_en, categories.title_fr AS category_title_fr, categories.title_en AS category_title_en, users.id AS users_id, users.username, users.email, users.password, users.role, users.created_at AS user_created_at FROM posts 
         JOIN posts_categories ON posts.id = posts_categories.post_id 
         JOIN users ON users.id = posts.author 
         JOIN categories ON categories.id =  posts_categories.category_id
@@ -76,7 +79,7 @@ class PostManager extends AbstractManager
 
         foreach ($posts as $key => $post) {
             $newUser = new User($post['username'], $post['email'], $post['password'], $post['role'], $post['user_created_at']);
-            $newPost = new Post($post['title'], $post['excerpt'], $post['content'], $newUser, $post['created_at']);
+            $newPost = new Post($post["categories_description_" . $this->lang], $post["excerpt_" . $this->lang], $post["content_" . $this->lang], $newUser, $post['created_at']);
             $newPost->settId($post['id']);
             $newUser->settId($post['users_id']);
 

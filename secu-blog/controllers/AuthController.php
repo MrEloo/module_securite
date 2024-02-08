@@ -8,6 +8,14 @@
 
 class AuthController extends AbstractController
 {
+
+    public function __construct()
+    {
+        $lang = $_SESSION["lang"];
+
+        parent::__construct("auth", $lang);
+    }
+
     public function login(): void
     {
         $this->render("login", []);
@@ -82,6 +90,17 @@ class AuthController extends AbstractController
     public function logout(): void
     {
         session_destroy();
+
+        $this->redirect("index.php");
+    }
+
+    public function switchLang()
+    {
+        if ($_SESSION["lang"] === "fr") {
+            $_SESSION["lang"] = "en";
+        } else {
+            $_SESSION["lang"] = "fr";
+        }
 
         $this->redirect("index.php");
     }

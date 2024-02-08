@@ -1,0 +1,10 @@
+{
+    "home": "home",
+    "nav_categories_link": "Categories",
+    "nav_login_link": "Login",
+    "nav_register_link": "Register",
+    "nav_logout_link": "Logout",
+    "nav_switch_link": "Switch Language",
+    "blog_title": "Secured Blog",
+    "blog_latest_posts": "Latest post"
+}
